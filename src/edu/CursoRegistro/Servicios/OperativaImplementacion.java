@@ -1,8 +1,7 @@
-package edu.CursoRegistro.OperativaEstudiantes;
+package edu.CursoRegistro.Servicios;
 
 import edu.CursoRegistro.Controladores.*;
 import edu.CursoRegistro.Dtos.EstudianteDtos;
-import edu.CursoRegistro.Servicios.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -48,11 +47,13 @@ public class OperativaImplementacion implements OperativaInterfaz{
 			System.out.println("Dame la fecha con el siguiente formato (dd-MM-yyyy)");
 			String fehcaString = sc.next();
 			String[] fechaSplitStrings = fehcaString.split("-");
-			if(fechaSplitStrings.length>0) {
+			if(fechaSplitStrings.length>1) {
 				DateTimeFormatter formatoDateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyy");
 				fecha = LocalDate.parse(fehcaString, formatoDateTimeFormatter);
 				cerrarcondicion=true;
 				return fecha;
+			}else {
+				cerrarcondicion=false;
 			}
 		} while (!cerrarcondicion);
 		return null;
@@ -93,9 +94,34 @@ public class OperativaImplementacion implements OperativaInterfaz{
 					throw new IllegalArgumentException("Unexpected value: " + opcion);
 				}
 				
+			}else {
+				System.out.println("No se ha obtenido bien el resultado del DNI, por el caso se le redirigira a la pagina principal.");
 			}
 		}
 		
+	}
+	
+	public void borrarEstudiante(Scanner sc) {
+		System.out.println("Dame el DNI del estudiante que quieres eliminar");
+		String dNIcomparar = sc.next();
+		LocalDate fechaFicticia = LocalDate("31-12-9999");
+		for(EstudianteDtos estudiante : InicioApp.listaEstudiantesDtos) {
+			if(estudiante.getdNIEstudiante().equals(dNIcomparar)) {	
+				if(InicioApp.listaEstudiantesDtos.size()==1) {
+					InicioApp.listaEstudiantesDtos.remove(estudiante);
+					InicioApp.listaEstudiantesDtos.add(new EstudianteDtos(0,"aaaaa","aaaaa","aaaaa",0,fechaFicticia ));
+				}else {
+					InicioApp.listaEstudiantesDtos.remove(estudiante);
+				}
+			}else {
+				System.out.println("No se ha obtenido bien el resultado del DNI, por el caso se le redirigira a la pagina principal.");
+			}
+		}
+		
+	}
+	private LocalDate LocalDate(String string) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

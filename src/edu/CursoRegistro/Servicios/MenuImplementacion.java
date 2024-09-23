@@ -14,7 +14,7 @@ public class MenuImplementacion implements MenuInterfaz {
 		System.out.println("| Opcion 0. Cerrar menu |");
 		System.out.println("| Opcion 1. Añadir estudiante |");
 		System.out.println("| Opcion 2. Eliminar estudiante |");
-		System.out.println("| Opcion 3. Mostrar estudiante |");
+		System.out.println("| Opcion 3. Modificar estudiante |");
 		System.out.println("| ¿Qué opcion quieres elegir? |");
 		System.out.println("-----------------------------------");
 		opcion = sc.nextByte();

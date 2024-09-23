@@ -1,4 +1,4 @@
-package edu.CursoRegistro.OperativaEstudiantes;
+package edu.CursoRegistro.Servicios;
 
 import java.util.Scanner;
 
@@ -20,6 +20,12 @@ public interface OperativaInterfaz {
 	 * @author jpribio - 19/09/24
 	 */
 	public void modificarEstudiante(Scanner sc);
+	
+	/**
+	 * Metodo que modifica algun elemento segun por el DNI
+	 * @author jpribio - 20/09/24
+	 */
+	public void borrarEstudiante(Scanner sc);
 	
 	
 }
