@@ -104,7 +104,7 @@ public class OperativaImplementacion implements OperativaInterfaz{
 	public void borrarEstudiante(Scanner sc) {
 		System.out.println("Dame el DNI del estudiante que quieres eliminar");
 		String dNIcomparar = sc.next();
-		LocalDate fechaFicticia = LocalDate("31-12-9999");
+		LocalDate fechaFicticia =LocalDate.of(9999, 12, 31);
 		for(EstudianteDtos estudiante : InicioApp.listaEstudiantesDtos) {
 			if(estudiante.getdNIEstudiante().equals(dNIcomparar)) {	
 				if(InicioApp.listaEstudiantesDtos.size()==1) {
@@ -119,10 +119,4 @@ public class OperativaImplementacion implements OperativaInterfaz{
 		}
 		
 	}
-	private LocalDate LocalDate(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-
 }
